@@ -17,22 +17,27 @@ public class SimpleCalcGUI extends JFrame{
         btnCompute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int num1 = Integer.parseInt(tfNumber1.getText());
-                int num2 = Integer.parseInt(tfNumber2.getText());
-                int result = 0;
-                if(cbOperations.getSelectedItem() == "+"){
-                    result = num1 + num2;
+                try{
+                    int num1 = Integer.parseInt(tfNumber1.getText());
+                    int num2 = Integer.parseInt(tfNumber2.getText());
+                    int result = 0;
+                    if(cbOperations.getSelectedItem() == "+"){
+                        result = num1 + num2;
+                    }
+                    if(cbOperations.getSelectedItem() == "-"){
+                        result = num1-num2;
+                    }
+                    if(cbOperations.getSelectedItem() == "*"){
+                        result = num1*num2;
+                    }
+                    if(cbOperations.getSelectedItem() == "/"){
+                        result = num1/num2;
+                    }
+                    lblResult.setText(String.valueOf(result));
+                } catch (Exception ee){
+                    JOptionPane.showMessageDialog(panel1, "Invalid Input");
                 }
-                if(cbOperations.getSelectedItem() == "-"){
-                    result = num1-num2;
-                }
-                if(cbOperations.getSelectedItem() == "*"){
-                    result = num1*num2;
-                }
-                if(cbOperations.getSelectedItem() == "/"){
-                    result = num1/num2;
-                }
-                lblResult.setText(String.valueOf(result));
+
             }
         });
     }
