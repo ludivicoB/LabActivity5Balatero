@@ -1,6 +1,7 @@
 package FoodOrdering;
 
 import javax.swing.*;
+import java.util.List;
 
 public class FoodOrderGUI extends JFrame{
     private JPanel panel1;
@@ -9,12 +10,27 @@ public class FoodOrderGUI extends JFrame{
     private JButton btnOrder;
     private JCheckBox cBurger;
     private JCheckBox cFries;
-    private JPanel cSoftDrinks;
     private JCheckBox cTea;
     private JCheckBox cSundae;
     private JRadioButton rb5;
     private JRadioButton rb10;
     private JRadioButton rb15;
+    private JCheckBox cSoftDrinks;
+    private List<JRadioButton> bgDiscounts;
+    private List<JCheckBox> cbFoods;
+    FoodOrderGUI(){
+        bgDiscounts.add(rb5);
+        bgDiscounts.add(rbNone);
+        bgDiscounts.add(rb10);
+        bgDiscounts.add(rb15);
+
+        cbFoods.add(cSundae);
+        cbFoods.add(cBurger);
+        cbFoods.add(cFries);
+        cbFoods.add(cTea);
+        cbFoods.add(cPizza);
+        cbFoods.add(cSoftDrinks);
+    }
 
     public static void main(String[] args) {
         FoodOrderGUI app = new FoodOrderGUI();
