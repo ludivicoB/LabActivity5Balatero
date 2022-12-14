@@ -19,7 +19,6 @@ public class SimpleCalcGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 int num1 = Integer.parseInt(tfNumber1.getText());
                 int num2 = Integer.parseInt(tfNumber2.getText());
-
             }
         });
     }
