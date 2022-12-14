@@ -12,14 +12,19 @@ public class LeapYearGUI extends JFrame{
         btnCheckYear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int year = Integer.parseInt(tfYear.getText());
-                boolean isLeap = true;
-                String output = "Leap year";
-                if(year % 4 != 0){
-                    isLeap = false;
-                    output = "Not a leap year";
+                try{
+                    int year = Integer.parseInt(tfYear.getText());
+                    boolean isLeap = true;
+                    String output = "Leap year";
+                    if(year % 4 != 0){
+                        isLeap = false;
+                        output = "Not a leap year";
+                    }
+                    JOptionPane.showMessageDialog(panel1, output);
+                } catch (Exception ee){
+                    JOptionPane.showMessageDialog(panel1, "You entered a wrong input");
                 }
-                JOptionPane.showMessageDialog(panel1, output);
+
             }
         });
 
