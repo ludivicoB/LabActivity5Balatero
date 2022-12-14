@@ -49,5 +49,6 @@ public class SimpleCalcGUI extends JFrame{
         app.setSize(500,400);
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
         app.setVisible(true);
+
     }
 }
