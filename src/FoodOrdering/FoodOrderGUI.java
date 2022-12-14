@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class FoodOrderGUI extends JFrame{
-    private JPanel panel1;
+    private JPanel panelMain;
     private JCheckBox cPizza;
     private JRadioButton rbNone;
     private JButton btnOrder;
@@ -69,16 +69,16 @@ public class FoodOrderGUI extends JFrame{
                         }
                     }
                     if(total == 0 && !discc){
-                        JOptionPane.showMessageDialog(panel1, "You did not select any food and discount");
+                        JOptionPane.showMessageDialog(panelMain, "You did not select any food and discount");
                     } else if(total == 0){
-                        JOptionPane.showMessageDialog(panel1, "You did not select any food");
+                        JOptionPane.showMessageDialog(panelMain, "You did not select any food");
                     } else if(!discc){
-                        JOptionPane.showMessageDialog(panel1, "You did not select any discount");
+                        JOptionPane.showMessageDialog(panelMain, "You did not select any discount");
                     } else {
-                        JOptionPane.showMessageDialog(panel1, "The total price is Php "+ String.format("%.2f",total));
+                        JOptionPane.showMessageDialog(panelMain, "The total price is Php "+ String.format("%.2f",total));
                     }
                 }catch(Exception ee){
-                    JOptionPane.showMessageDialog(panel1, "You did something wrong");
+                    JOptionPane.showMessageDialog(panelMain, "You did something wrong");
                 }
 
 
@@ -90,7 +90,7 @@ public class FoodOrderGUI extends JFrame{
     public static void main(String[] args) {
         FoodOrderGUI app = new FoodOrderGUI();
         app.setTitle("Food Ordering System");
-        app.setContentPane(app.panel1);
+        app.setContentPane(app.panelMain);
         app.setSize(500,500);
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
         app.setVisible(true);
