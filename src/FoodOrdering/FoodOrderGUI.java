@@ -32,40 +32,56 @@ public class FoodOrderGUI extends JFrame{
         btnOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double total=0;
-                if(cPizza.isSelected()){
-                    total+=100;
-                }
-                if(cBurger.isSelected()){
-                    total+=80;
-                }
-                if(cFries.isSelected()){
-                    total+=65;
-                }
-                if(cSoftDrinks.isSelected()){
-                    total+=55;
-                }
-                if(cTea.isSelected()){
-                    total+=50;
-                }
-                if(cSundae.isSelected()){
-                    total+=40;
-                }
-                double disc;
-                for(JRadioButton rb : bgDiscounts){
-                    if(rb.isSelected()){
-                        if(Objects.equals(rb.getText(), "5% Off")){
-                            total = total - (total * 0.05);
-                        }
-                        if(Objects.equals(rb.getText(), "10% Off")){
-                            total = total - (total * 0.10);
-                        }
-                        if(Objects.equals(rb.getText(), "15% Off")){
-                            total = total - (total * 0.15);
+                try{
+                    double total=0;
+                    if(cPizza.isSelected()){
+                        total+=100;
+                    }
+                    if(cBurger.isSelected()){
+                        total+=80;
+                    }
+                    if(cFries.isSelected()){
+                        total+=65;
+                    }
+                    if(cSoftDrinks.isSelected()){
+                        total+=55;
+                    }
+                    if(cTea.isSelected()){
+                        total+=50;
+                    }
+                    if(cSundae.isSelected()){
+                        total+=40;
+                    }
+                    double disc;
+                    boolean discc = false;
+                    for(JRadioButton rb : bgDiscounts){
+                        if(rb.isSelected()){
+                            discc = true;
+                            if(Objects.equals(rb.getText(), "5% Off")){
+                                total = total - (total * 0.05);
+                            }
+                            if(Objects.equals(rb.getText(), "10% Off")){
+                                total = total - (total * 0.10);
+                            }
+                            if(Objects.equals(rb.getText(), "15% Off")){
+                                total = total - (total * 0.15);
+                            }
                         }
                     }
+                    if(total == 0 && !discc){
+                        JOptionPane.showMessageDialog(panel1, "You did not select any food and discount");
+                    } else if(total == 0){
+                        JOptionPane.showMessageDialog(panel1, "You did not select any food");
+                    } else if(!discc){
+                        JOptionPane.showMessageDialog(panel1, "You did not select any discount");
+                    } else {
+                        JOptionPane.showMessageDialog(panel1, "The total price is Php "+ String.format("%.2f",total));
+                    }
+                }catch(Exception ee){
+                    JOptionPane.showMessageDialog(panel1, "You did something wrong");
                 }
-                JOptionPane.showMessageDialog(panel1, "The total price is Php "+ String.format("%.2f",total));
+
+
 
             }
         });
