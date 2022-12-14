@@ -6,8 +6,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+class NoFoodException extends Exception{
+    NoFoodException(){
 
-public class FoodOrderGUI extends JFrame{
+    }
+}
+public class FoodOrderGUI extends JFrame {
     private JPanel panelMain;
     private JCheckBox cPizza;
     private JRadioButton rbNone;
@@ -68,26 +72,22 @@ public class FoodOrderGUI extends JFrame{
                             }
                         }
                     }
-                    if(total == 0 && !discc){
-                        JOptionPane.showMessageDialog(panelMain, "You did not select any food and discount");
-                    } else if(total == 0){
-                        JOptionPane.showMessageDialog(panelMain, "You did not select any food");
-                    } else if(!discc){
-                        JOptionPane.showMessageDialog(panelMain, "You did not select any discount");
+                    if(!discc && total != 0){
+                        rbNone.setSelected(true);
+                    }
+                    if(total == 0){
+                        throw new NoFoodException();
                     } else {
                         JOptionPane.showMessageDialog(panelMain, "The total price is Php "+ String.format("%.2f",total));
                     }
-                }catch(Exception ee){
-                    JOptionPane.showMessageDialog(panelMain, "You did something wrong");
+                }catch(NoFoodException ee){
+                    JOptionPane.showMessageDialog(panelMain, "You did not select any food");
                 }
-
-
-
             }
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoFoodException{
         FoodOrderGUI app = new FoodOrderGUI();
         app.setTitle("Food Ordering System");
         app.setContentPane(app.panelMain);
