@@ -86,7 +86,6 @@ public class FoodOrderGUI extends JFrame {
             }
         });
     }
-
     public static void main(String[] args) throws NoFoodException{
         FoodOrderGUI app = new FoodOrderGUI();
         app.setTitle("Food Ordering System");
