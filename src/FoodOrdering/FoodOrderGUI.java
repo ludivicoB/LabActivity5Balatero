@@ -21,21 +21,14 @@ public class FoodOrderGUI extends JFrame{
     private JRadioButton rb15;
     private JCheckBox cSoftDrinks;
     private List<JRadioButton> bgDiscounts;
-//    private List<JCheckBox> cbFoods;
     FoodOrderGUI(){
         bgDiscounts = new ArrayList<>();
-//        cbFoods = new ArrayList<>();
         bgDiscounts.add(rb5);
         bgDiscounts.add(rbNone);
         bgDiscounts.add(rb10);
         bgDiscounts.add(rb15);
 
-//        cbFoods.add(cSundae);
-//        cbFoods.add(cBurger);
-//        cbFoods.add(cFries);
-//        cbFoods.add(cTea);
-//        cbFoods.add(cPizza);
-//        cbFoods.add(cSoftDrinks);
+
         btnOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
